@@ -33,6 +33,9 @@
 #There are two keys in the .env file - API_KEY and APP_URL (for Firebase).
 #If you want the application to work properly, create a new project in Firebase,
 #create a Realtime Database and copy the url as APP_URL. To get API_KEY, get Web API Key from Project Settings in Firebase.
+#Then in the root folder add '.env' file and add the following lines in the '.env' file:
+#API_KEY = [YOUR_API_KEY]
+#APP_URL = [YOUR_APP_URL]
 .env
 
 /build/
