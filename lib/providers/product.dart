@@ -2,6 +2,9 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:flutter_config/flutter_config.dart';
+
+final String? appUrl = FlutterConfig.get('APP_URL');
 
 class Product with ChangeNotifier {
   final String id;
@@ -27,8 +30,8 @@ class Product with ChangeNotifier {
 
   Future<void> toggleFavoriteStatus(String authToken, String userId) async {
     final oldStatus = isFavorite;
-    final url = Uri.parse(
-        'https://flutter-online-shop-ad-default-rtdb.europe-west1.firebasedatabase.app/userFavorites/$userId/$id.json?auth=$authToken');
+    final url =
+        Uri.parse('$appUrl/userFavorites/$userId/$id.json?auth=$authToken');
     isFavorite = !isFavorite;
     notifyListeners();
     try {
